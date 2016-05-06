@@ -65,7 +65,7 @@ endfor
 " ファイルを読込む時にトライする文字エンコードの順序を確定する。漢字コード自
 " 動判別機能を利用する場合には別途iconv.dllが必要。iconv.dllについては
 " README_w32j.txtを参照。ユーティリティスクリプトを読み込むことで設定される。
-source $VIM/plugins/kaoriya/encode_japan.vim
+"source $VIM/plugins/kaoriya/encode_japan.vim
 " メッセージを日本語にする (Windowsでは自動的に判断・設定されている)
 if !(has('win32') || has('mac')) && has('multi_lang')
   if !exists('$LANG') || $LANG.'X' ==# 'X'
@@ -234,9 +234,9 @@ endif
 set formatexpr=autofmt#japanese#formatexpr()
 
 " vimdoc-ja: 日本語ヘルプを無効化する.
-if kaoriya#switch#enabled('disable-vimdoc-ja')
-  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "vimdoc-ja"'), ',')
-endif
+"if kaoriya#switch#enabled('disable-vimdoc-ja')
+"let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "vimdoc-ja"'), ',')
+"endif
 
 " Copyright (C) 2011 KaoriYa/MURAOKA Taro
 
@@ -245,8 +245,8 @@ endif
 " MacVim-KaoriYa固有の設定
 "
 let $PATH = simplify($VIM . '/../../MacOS') . ':' . $PATH
-set migemodict=$VIMRUNTIME/dict/migemo-dict
-set migemo
+"set migemodict=$VIMRUNTIME/dict/migemo-dict
+"set migemo
 
 " neobundle.vimの設定：プラグインの管理
 filetype off
@@ -256,33 +256,33 @@ if has('vim_starting')
 endif
   call neobundle#begin(expand('~/.bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
 
-" 使いたいプラグインのリポジトリを羅列。Subversion とか Mercurial でもいけるらしい。
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'git://github.com/mattn/emmet-vim.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
-NeoBundle 'git://github.com/ujihisa/neco-look.git'
-NeoBundle 'git://github.com/sophacles/vim-processing.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/msanders/cocoa.vim.git'
-NeoBundle 'git://github.com/tpope/vim-repeat.git'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'git://github.com/tyru/open-browser.vim'
-NeoBundle 'git://github.com/tell-k/vim-browsereload-mac'
-NeoBundle 'git://github.com/hail2u/vim-css3-syntax'
-NeoBundle 'git://github.com/taichouchou2/vim-javascript' " jQuery syntax追加
-NeoBundle 'git://github.com/kannokanno/previm'
-NeoBundle 'git://github.com/plasticboy/vim-markdown'
-NeoBundle 'git://github.com:digitaltoad/vim-jade.git'
-NeoBundle 'git://github.com/slim-template/vim-slim'
+  " 使いたいプラグインのリポジトリを羅列。Subversion とか Mercurial でもいけるらしい。
+  NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+  NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+  NeoBundle 'git://github.com/Shougo/unite.vim.git'
+  NeoBundle 'git://github.com/mattn/emmet-vim.git'
+  NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+  NeoBundle 'git://github.com/thinca/vim-ref.git'
+  NeoBundle 'git://github.com/tpope/vim-surround.git'
+  NeoBundle 'git://github.com/ujihisa/neco-look.git'
+  NeoBundle 'git://github.com/sophacles/vim-processing.git'
+  NeoBundle 'git://github.com/Shougo/vimshell.git'
+  NeoBundle 'git://github.com/Shougo/vimproc.git'
+  NeoBundle 'git://github.com/Shougo/vimfiler.git'
+  NeoBundle 'git://github.com/msanders/cocoa.vim.git'
+  NeoBundle 'git://github.com/tpope/vim-repeat.git'
+  NeoBundle 'Shougo/neosnippet'
+  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'git://github.com/tyru/open-browser.vim'
+  NeoBundle 'git://github.com/tell-k/vim-browsereload-mac'
+  NeoBundle 'git://github.com/hail2u/vim-css3-syntax'
+  NeoBundle 'git://github.com/taichouchou2/vim-javascript' " jQuery syntax追加
+  NeoBundle 'git://github.com/kannokanno/previm'
+  NeoBundle 'git://github.com/plasticboy/vim-markdown'
+  NeoBundle 'git://github.com:digitaltoad/vim-jade.git'
+  NeoBundle 'git://github.com/slim-template/vim-slim'
+  call neobundle#end()
 
 filetype plugin indent on  "ファイル判定をonにする
 
